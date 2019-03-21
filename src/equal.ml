@@ -62,7 +62,7 @@ let rec expr ctx e1 e2 ty =
     match  ty' with
 
     | TT.Prod ((x, t), u) ->
-      (* Apply function extensionality. *)
+      (* Apply eta and congruence. *)
       let x' = TT.new_atom x in
       let ctx = Context.extend_ident x' t ctx
       and e1 = TT.Apply (e1, TT.Atom x')
